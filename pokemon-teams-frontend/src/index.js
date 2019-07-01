@@ -2,9 +2,6 @@ const BASE_URL = "http://localhost:3000"
 const TRAINERS_URL = `${BASE_URL}/trainers`
 const POKEMONS_URL = `${BASE_URL}/pokemons`
 const main = document.querySelector('main')
-const pokemonAll = []
-
-
 
 function getTrainers() {
     fetch(TRAINERS_URL)
@@ -30,19 +27,6 @@ function getTrainers() {
 }
 
 getTrainers()
-
-function getPokemons() {
-    fetch(POKEMONS_URL)
-    .then(resp => resp.json())
-    .then(json => {
-        json.forEach(pokemon => {
-            pokemonAll.push(pokemon)
-        })
-    })
-}
-
-getPokemons()
-
 
 main.addEventListener('click', function(e) {
     if (e.target.className === "addButton") {
